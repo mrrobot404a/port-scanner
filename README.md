@@ -14,19 +14,19 @@ This was built to understand what a port scanner does and the difference between
 
 | **Feature**               | **Socket Version**   |   **Nmap Version**     |
 | :------------------------ | :----------------:   | :------------------:   |
-| Built with Python sockets |        ✅ Yes       |         ❌ No          |
-| External dependencies     |        None          | Nmap + `python-nmap`   |
-| TCP connect scanning      |        ✅ Yes       |         ✅ Yes         |
-| Service detection         |        ❌ No        |         ✅ Yes         |
-| OS detection              |        ❌ No        |         ✅ Yes         |
-| Best for learning         |     ✅ Excellent    |      ❌ Not ideal      |
-| Fast scanning             |     ⚠️ Limited      |        ✅ Fast         |
+| Built with Python sockets |         Yes        |          No          |
+| External dependencies     |        None        | Nmap + `python-nmap`   |
+| TCP connect scanning      |         Yes       |          Yes         |
+| Service detection         |         No        |          Yes         |
+| OS detection              |         No        |          Yes         |
+| Best for learning         |      Excellent    |       Not ideal      |
+| Fast scanning             |      Limited      |         Fast         |
 
 
 ## Setup
 
 ### Socket version (no dependencies)
-Just needs Python, but i used the latestversion which was 3.9+ (uses type hints like `tuple[int, int]`).
+Just needs Python, but i used the latest version, which was 3.9+ (uses type hints like `tuple[int, int]`).
 
 ```bash
 python portscan_socket_method.py
@@ -84,7 +84,7 @@ Done. 2 open port(s): [22, 80]
 
 ## ⚠️ Legal notice
 
-Only scan systems you own or have explicit permission to test. Scanning networks or hosts without authorization is illegal in most jurisdictions. Good targets for practice:
+Only scan systems you own or have explicit permission to test. Scanning networks or hosts without authorisation is illegal in most jurisdictions. Good targets for practice:
 
 - `127.0.0.1` (localhost)
 - Your own router/LAN devices
