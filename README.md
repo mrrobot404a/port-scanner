@@ -82,7 +82,7 @@ Scanning 45.33.32.156 on ports 20-100 (timeout=0.5s)...
 Done. 2 open port(s): [22, 80]
 ```
 
-## ⚠️ Legal notice
+##  Legal notice
 
 Only scan systems you own or have explicit permission to test. Scanning networks or hosts without authorisation is illegal in most jurisdictions. Good targets for practice:
 
