@@ -1,20 +1,32 @@
 # Port Scanner
 
-A simple TCP port range scanner, built two ways to compare approaches:
+What is a port scanner?
+It's a tool that checks which network ports on a host are open, closed or filtered to determine what services are available and accessible
 
-- **`portscan_socket_method.py`** — pure Python, uses the built-in `socket` module. No external dependencies.
-- **`portscan.py`** — wraps [Nmap](https://nmap.org/) via the `python-nmap` library, for richer scan data (service/version detection where available).
+I have made 2 basic versions of a port scanner below:
 
-Built as a learning project to understand what a port scanner actually does under the hood (raw sockets) versus using an industry-standard tool (Nmap) through Python.
+- **`portscan_socket_method.py`** — pure Python, uses the built-in `socket` module. No external dependencies. Shows how TCP connect scanning works.
+- **`portscan.py`** — uses the `python-nmap` library to access the Nmap scanning engine for more in depth scanning and service detection.
 
-## Why two versions?
+This was built to understand what a port scanner does and the difference between one made from scratch compared to another which uses industry-standard tools like Nmap.
 
-The socket version shows the fundamentals — opening a TCP connection and checking if it succeeds. The nmap version shows how to work with a professional scanning engine from Python, which is closer to what's used in real security tooling.
+## Comparison
+
+| **Feature**               | **Socket Version**   |   **Nmap Version**     |
+| :------------------------ | :----------------:   | :------------------:   |
+| Built with Python sockets |         Yes        |          No          |
+| External dependencies     |        None        | Nmap + `python-nmap`   |
+| TCP connect scanning      |         Yes       |          Yes         |
+| Service detection         |         No        |          Yes         |
+| OS detection              |         No        |          Yes         |
+| Best for learning         |      Excellent    |       Not ideal      |
+| Fast scanning             |      Limited      |         Fast         |
+
 
 ## Setup
 
 ### Socket version (no dependencies)
-Just needs Python 3.9+ (uses type hints like `tuple[int, int]`).
+Just needs Python, but i used the latest version, which was 3.9+ (uses type hints like `tuple[int, int]`).
 
 ```bash
 python portscan_socket_method.py
@@ -24,10 +36,10 @@ python portscan_socket_method.py
 Requires Nmap itself to be installed, plus the Python wrapper.
 
 **Windows:**
-1. Install Nmap: https://nmap.org/download.html#windows (accept the Npcap prompt during install)
+1. Nmap link: https://nmap.org/download.html#windows (accept the Npcap prompt during install)
 2. `pip install python-nmap`
 
-**Linux (Debian/Kali/Ubuntu):**
+**Linux (Debian/Kali/Ubuntu):** (I have not tried this on Linux, so I can't guarantee that it will work)
 ```bash
 sudo apt install nmap python3-pip
 pip install python-nmap
@@ -72,7 +84,7 @@ Done. 2 open port(s): [22, 80]
 
 ## ⚠️ Legal notice
 
-Only scan systems you own or have explicit permission to test. Scanning networks or hosts without authorization is illegal in most jurisdictions. Good targets for practice:
+Only scan systems you own or have explicit permission to test. Scanning networks or hosts without authorisation is illegal in most jurisdictions. Good targets for practice:
 
 - `127.0.0.1` (localhost)
 - Your own router/LAN devices
